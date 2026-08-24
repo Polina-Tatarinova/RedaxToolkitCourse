@@ -10,6 +10,11 @@ api.injectEndpoints({
       }),
       invalidatesTags: ["Recipe"],
     }),
+    invalidatesTags: () => [
+      {
+        type: "Recipe",
+      },
+    ],
   }),
 });
 

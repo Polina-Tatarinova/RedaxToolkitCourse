@@ -19,18 +19,6 @@
     {
       "id": "5",
       "name": "Капрезе"
-    },
-    {
-      "name": "ccc",
-      "id": "fGeMYiqFJpE"
-    },
-    {
-      "name": "",
-      "id": "EYKdJCKP5SY"
-    },
-    {
-      "name": "",
-      "id": "OxfPm67oRik"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
