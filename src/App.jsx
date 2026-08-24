@@ -1,43 +1,21 @@
+import CreateRecipe from "./create-recipe/CreateRecipe";
 import RecipeItem from "./recipe-item/RecipeItem";
+import { useGetRecipesQuery } from "./store/api/api";
 
 function App() {
+  const { data, isLoading, error } = useGetRecipesQuery();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
   return (
-    <div>
-      <RecipeItem
-        recipe={{
-          id: 1,
-          name: "Сибас запечённый с овощами гриль",
-        }}
-      />
-
-      <RecipeItem
-        recipe={{
-          id: 2,
-          name: "Пачта с белыми грибами и трюфелем",
-        }}
-      />
-
-      <RecipeItem
-        recipe={{
-          id: 3,
-          name: "Форель на гриле с запечёными овощами",
-        }}
-      />
-
-      <RecipeItem
-        recipe={{
-          id: 4,
-          name: "Медальёны из говяжей вырезки",
-        }}
-      />
-
-      <RecipeItem
-        recipe={{
-          id: 5,
-          name: "Капрезе",
-        }}
-      />
-    </div>
+    <section>
+      <CreateRecipe />
+      <div>
+        {data?.map((recipe) => (
+          <RecipeItem key={recipe.id} recipe={recipe} />
+        ))}
+      </div>
+    </section>
   );
 }
 
